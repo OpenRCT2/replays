@@ -12,11 +12,11 @@ if (Get-Command "zip" -ErrorAction SilentlyContinue)
 
 Write-Host -ForegroundColor Cyan "Re-creating artifacts directory..."
 Remove-Item -Force -Recurse artifacts -ErrorAction SilentlyContinue
-New-Item -Force -ItemType Directory artifacts,artifacts/replays | Out-Null
+New-Item -Force -ItemType Directory artifacts | Out-Null
 
 Write-Host -ForegroundColor Cyan "Copying replays..."
 Push-Location replays
-    Copy-Item -Recurse ../replays ../artifacts/replays
+    Copy-Item -Recurse ../replays ../artifacts/
 Pop-Location
 
 Write-Host -ForegroundColor Cyan "Creating final archive..."
