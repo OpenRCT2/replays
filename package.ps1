@@ -35,3 +35,5 @@ else
     Compress-Archive -Force "artifacts/replays/*" -DestinationPath "artifacts/replays.zip" -CompressionLevel Optimal
 }
 Remove-Item -Force -Recurse artifacts/replays
+$fileHash = Get-FileHash "artifacts/replays.zip" -Algorithm SHA1 | Select-Object Hash
+Write-Host -ForegroundColor Cyan "SHA1:" $fileHash.Hash
