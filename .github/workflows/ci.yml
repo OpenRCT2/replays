@@ -23,5 +23,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          body: SHA1:${{ steps.package.outputs.SHA1 }}
+          body: SHA256:${{ steps.package.outputs.SHA256 }}
           files: artifacts/replays.zip

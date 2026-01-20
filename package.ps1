@@ -35,5 +35,5 @@ else
     Compress-Archive -Force "artifacts/replays/*" -DestinationPath "artifacts/replays.zip" -CompressionLevel Optimal
 }
 Remove-Item -Force -Recurse artifacts/replays
-$fileHash = Get-FileHash "artifacts/replays.zip" -Algorithm SHA256 | Select-Object Hash
-Write-Host -ForegroundColor Cyan "::set-output name=SHA256::" $fileHash.Hash
+$fileHash = Get-FileHash "artifacts/replays.zip" -Algorithm SHA256 | Select-Object Hash -ExpandProperty Hash
+echo "SHA256=$fileHash" >> $GITHUB_ENV
